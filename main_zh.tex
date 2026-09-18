@@ -1,0 +1,202 @@
+% !TeX program = xelatex
+% Public student research CV. Compile with XeLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,left=20mm,right=20mm,top=15mm,bottom=17mm]{geometry}
+\usepackage{fix-cm}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{needspace}
+
+% Explicit TeX Live fonts; no proprietary fonts or synthetic bold.
+\setmainfont{texgyretermes-regular.otf}[
+  BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf,
+  BoldItalicFont=texgyretermes-bolditalic.otf]
+\setsansfont{texgyretermes-regular.otf}[
+  BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf,
+  BoldItalicFont=texgyretermes-bolditalic.otf]
+\setCJKmainfont{FandolSong-Regular.otf}[
+  BoldFont=FandolSong-Bold.otf,ItalicFont=FandolKai-Regular.otf]
+\setCJKsansfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]
+
+% ===== PERSONAL FIELDS =====
+\newcommand{\CVName}{赵一鸣}
+\newcommand{\CVSecondaryName}{}
+\newcommand{\CVUniversity}{香港科技大学（广州）}
+\newcommand{\CVDept}{}
+\newcommand{\CVStage}{博士研究生}
+\newcommand{\CVResearchLabel}{研究方向：}
+\newcommand{\CVResearch}{无人机视觉语言导航、雷达与相机融合、声学感知}
+\newcommand{\CVEmail}{zym736531683@gmail.com}
+\newcommand{\CVAcademicEmail}{yzhao517@connect.hkust-gz.edu.cn}
+\newcommand{\CVHomeURL}{https://github.com/zhaoyiming}
+\newcommand{\CVCodeURL}{https://github.com/zhaoyiming}
+\newcommand{\CVHomeLabel}{Website}
+\newcommand{\CVLabel}{个人简历}
+
+\definecolor{navy}{HTML}{1A3C5E}
+\definecolor{gray3}{HTML}{555555}
+\definecolor{gray4}{HTML}{888888}
+\definecolor{grayline}{HTML}{B0B8C0}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,
+  pdfauthor={\CVName},pdftitle={\CVLabel{} --- \CVName}}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\raggedbottom
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\rmfamily\footnotesize\color{gray4}\CVName{} --- \CVLabel}
+\fancyhead[R]{\rmfamily\footnotesize\color{gray4}\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\headheight}{14pt}
+\fancypagestyle{firstpage}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% ===== TYPOGRAPHY: edit centrally, never compress individual sections =====
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{11}{16}}
+\renewcommand\small{\@setfontsize\small{10}{14}}
+\renewcommand\footnotesize{\@setfontsize\footnotesize{9}{11.5}}
+\makeatother
+\AtBeginDocument{\normalsize}
+\newcommand{\cvheadingfont}{\rmfamily}
+\newcommand{\cventrygap}{\par\addvspace{4pt}}
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{8pt}\Needspace{4\baselineskip}%
+  {\cvheadingfont\bfseries\fontsize{12}{15}\selectfont\color{navy}#1\par}%
+  \nobreak\vspace{3pt}{\color{grayline}\hrule height 0.4pt}%
+  \nobreak\vspace{5pt}%
+}
+
+% Two-line record: title | location/organization; degree/role | dates.
+% The record header stays together; long left fields wrap without hitting dates.
+\newcommand{\cvrecord}[4]{%
+  \par\Needspace{3\baselineskip}\noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}p{0.32\textwidth}@{}}
+  \textbf{#1} & {\small\textcolor{gray3}{#2}}\\
+  #3 & {\small\textcolor{gray3}{#4}}
+  \end{tabularx}\par
+}
+\newcommand{\cvaward}[2]{%
+  \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}p{0.22\textwidth}@{}}
+  #1 & {\small\textcolor{gray3}{#2}}
+  \end{tabularx}\par
+}
+\newenvironment{cvitems}{\begin{itemize}[
+  leftmargin=1.5em,labelsep=0.55em,itemsep=1pt,topsep=2pt,
+  partopsep=0pt,parsep=0pt]}{\end{itemize}}
+\newenvironment{cvpublications}{\begin{enumerate}[
+  leftmargin=1.6em,labelwidth=1em,labelsep=0.6em,label=\arabic*.,
+  itemsep=2pt,topsep=0pt,partopsep=0pt,parsep=0pt,align=left]\raggedright}{\end{enumerate}}
+\newenvironment{cvskills}{\par\noindent\tabularx{\textwidth}{@{}>{\bfseries\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}X@{}}}{\endtabularx\par}
+
+
+\newcommand{\cvresearch}[3]{%
+  \par\Needspace{5\baselineskip}{\raggedright\textbf{#1}\par}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}p{0.32\textwidth}@{}}
+  #2 & {\small\textcolor{gray3}{#3}}
+  \end{tabularx}\par
+}
+
+\begin{document}
+\thispagestyle{firstpage}
+{\centering
+  {\cvheadingfont\bfseries\fontsize{24}{28}\selectfont\color{navy}\CVName
+    \enspace{\mdseries\fontsize{12}{16}\selectfont Yiming Zhao}\par}
+  \vspace{3pt}
+  {\fontsize{11}{16}\selectfont\CVUniversity\par}
+  {\small\CVStage{} \textbar{} 中国广州\par}
+  \vspace{2pt}
+  {\small\color{gray3}\CVResearchLabel{}\CVResearch\par}
+  \vspace{3pt}
+  {\small\href{mailto:\CVEmail}{\CVEmail}\enspace\textbar\enspace
+    \href{mailto:\CVAcademicEmail}{\CVAcademicEmail}\enspace\textbar\enspace
+    \href{\CVCodeURL}{github.com/zhaoyiming}\par}
+}
+
+\cvsection{教育经历}
+\cvrecord{香港科技大学（广州）}{中国广州}{博士研究生}{2024年9月 -- 至今}
+{\small 雅思：6.5；大学英语六级（CET-6）。\par}
+\cventrygap
+\cvrecord{南京航空航天大学}{中国南京}{计算机科学学院，软件工程硕士}{2020年9月 -- 2023年4月}
+{\small 推荐免试研究生；GPA：3.71/4.00。\par}
+\cventrygap
+\cvrecord{河南大学}{中国开封}{软件学院，网络工程学士}{2016年9月 -- 2020年6月}
+{\small GPA：3.49/4.00；排名前5\%。\par}
+\cventrygap
+\cvrecord{元智大学}{中国台湾}{资讯学院，资讯工程专业本科交换生}{2018年9月 -- 2019年2月}
+
+\cvsection{论文与在投稿件}
+% Preserve official English titles, author order, and corresponding-author markers.
+% Entry dates and publication/submission statuses follow the English CV.
+\begin{cvpublications}
+
+\item \textbf{Yiming Zhao}, Tianshun Li, Jingle He, Ruonan Chai, and Xinhu Zheng*. ``LightVLN: Efficient Aerial Vision-and-Language Navigation with Compact Memory and History-Guided Local Aggregation.'' 2026年9月。 已投稿至 \textit{IEEE ICRA 2027}.
+\item \textbf{Yiming Zhao} and Ying Cui*. ``SQRCF-UAV: Streaming Radar--Camera Fusion for 3D UAV Detection and Estimation.'' 2026年4月。 已投稿至 \textit{IEEE ICRA 2027}；期刊扩展版已投稿至 \textit{IEEE Transactions on Multimedia}.
+\item Zihao Tao, \textbf{Yiming Zhao}, Hongtao Zhao, Zijun Gong, and Ying Cui*. ``Sensing in Low-altitude Wireless Networks: Applications, Systems, Techniques, and Developments.'' 2026年2月。 已被录用：\textit{IEEE Communications Magazine}.
+\item \textbf{Yiming Zhao}, Ying Cui*, Zijun Gong, and Yang Yang. ``SRCF-UAV: Sparse Radar-Camera Fusion for 3D UAV Detection.'' 2025年8月。 已被录用：\textit{IEEE ICRA 2026}；期刊扩展版已投稿至 \textit{IEEE Transactions on Multimedia}.
+\item Yanchao Zhao, \textbf{Yiming Zhao}*, Si Li, Hao Han, and Lei Xie. ``UltraSnoop: Placement-agnostic Keystroke Snooping via Ultrasonic Sonar.'' 2023年4月。 已发表于 \textit{ACM Transactions on Internet of Things}.
+\item \textbf{Yiming Zhao}, Yanchao Zhao, Huawei Tu*, Qihan Huang, Wenlai Zhao, and Wenhao Jiang. ``Motion Gesture Delimiters for Smartwatch Interaction.'' 2022年2月。 已发表于 \textit{Wireless Communications and Mobile Computing}.
+\item N. Zheng, Na Li*, \textbf{Yiming Zhao}, Chao Weng, and Dan Su. ``Tencent Speaker Diarization System for the VoxCeleb Speaker Recognition Challenge 2021.'' 2021年10月。 报告于 \textit{VoxSRC Workshop, Interspeech 2021}.
+
+\end{cvpublications}
+
+\cvsection{荣誉与奖励}
+\cvaward{研究生阶段：优秀毕业生、科研先进个人}{2023年}
+\cvaward{腾讯犀鸟精英人才计划；VoxSRC 2021 Track 4 第三名（团队）}{2021年}
+\cvaward{网络技术挑战赛第三名}{2020年}
+\cvaward{本科阶段：优秀学生、奖学金、优秀毕业生、优秀毕业论文}{2020年}
+
+\newpage
+\cvsection{科研经历}
+\cvresearch{LightVLN：基于紧凑记忆与历史引导局部聚合的高效空中视觉语言导航}{无人机视觉语言导航}{2026年2月 -- 至今}
+\begin{cvitems}
+\item 开发采用0.5B语言骨干的导航策略（完整模型约1.276B参数），结合单Token历史记忆与历史、指令共同引导的局部聚合，将当前视图的256个Token压缩至32个，观测相关Token总数最多为48个。
+\item 在OpenFly Test-Seen和Test-Unseen上分别取得50.93\%和36.14\%的成功率，在AerialVLN-S Val-Seen上取得25.83\%的成功率。
+\item 在Jetson Orin NX 16\,GB上完成闭环硬件在环（HIL）导航验证，模型推理速度为14.61\,Hz，端到端决策更新频率为11.13\,Hz。
+\end{cvitems}
+\cventrygap
+\cvresearch{SRCF-UAV：面向无人机三维检测的稀疏雷达与相机融合}{多模态感知与数据集构建}{2024年6月 -- 2025年9月}
+\begin{cvitems}
+\item 提出稀疏雷达与相机融合方法，通过雷达/图像辅助查询初始化和距离-速度感知注意力，实现实时无人机三维检测。
+\item 搭建雷达-相机-RTK数据采集平台，发布厘米级精度的多模态无人机数据集；mAP最高达91.65\%，推理延迟约17\,ms。
+\end{cvitems}
+\cventrygap
+\cvresearch{UltraSnoop：基于超声声呐的位置无关击键窃听}{声学感知}{2020年10月 -- 2022年10月}
+\begin{cvitems}
+\item 利用手机发出的啁啾信号及击键反射信号估计到达时间差，结合双虚拟坐标系与基于MFCC的优化方法推断击键。
+\item 实现无需训练、不依赖设备摆放位置和键盘类型的击键推断。
+\end{cvitems}
+
+\cvsection{工作与实习经历}
+\cvrecord{蔚来汽车}{中国北京}{语音算法}{2022年6月 -- 2024年5月}
+\begin{cvitems}
+\item 采集语音与声源数据，生成房间脉冲响应（RIR），构建车载语音增强数据集。
+\item 从特征、RIR与数据方面改进多通道语音分离模型（RNN-BF、CLDNN），相较已有算法将唤醒率提升5\%。
+\item 实现车端声学回声抑制（AES）与语音活动检测（VAD），涵盖数据仿真、模型训练和后处理；改进基于TalkNet的音视频融合唇动VAD。两个模块均已在蔚来ET5 2.2上线。
+\item 训练并改进基于Qwen的大语言模型，用作团队多语言自动语音识别（ASR）系统的基础解码器。
+\end{cvitems}
+\cventrygap
+\cvrecord{腾讯AI Lab}{中国深圳}{语音算法实习生}{2021年5月 -- 2021年11月}
+\begin{cvitems}
+\item 利用SFace损失函数、混合专家（MoE）与动态剪枝，改进ECAPA-TDNN、X-Vector等声纹识别模型。
+\item 参与团队模型优化，在VoxSRC 2021 Track 4中取得第三名。
+\end{cvitems}
+
+\cvsection{专业技能}
+\begin{cvskills}
+语音与感知 & 声学回声抑制、多模态VAD、语音分离，以及语音与雷达信号的时频分析。\\
+计算机视觉 & 二维/三维目标检测、雷达与相机融合、无人机平台、基于RTK的数据集构建、TI毫米波雷达。\\
+大模型与导航 & 大语言模型预训练与监督微调、多模态模型、无人机导航、视觉语言推理、时序记忆、动作预测。\\
+框架与工具 & PyTorch、LoRA、高效模型训练。
+\end{cvskills}
+\end{document}
