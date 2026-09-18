@@ -100,7 +100,7 @@
 
 
 \newcommand{\cvresearch}[3]{%
-  \par\Needspace{5\baselineskip}\textbf{#1}\par
+  \par\Needspace{5\baselineskip}{\raggedright\textbf{#1}\par}
   \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}p{0.32\textwidth}@{}}
   #2 & {\small\textcolor{gray3}{#3}}
   \end{tabularx}\par
@@ -121,6 +121,7 @@
 
 \cvsection{Education}
 \cvrecord{The Hong Kong University of Science and Technology (Guangzhou)}{Guangzhou, China}{PhD Student}{Sep 2024 -- present}
+{\small IELTS: 6.5; CET-6.\par}
 \cventrygap
 \cvrecord{Nanjing University of Aeronautics and Astronautics}{Nanjing, China}{Master's in Software Engineering, College of Computer Science}{Sep 2020 -- Apr 2023}
 {\small Admitted through postgraduate recommendation; GPA: 3.71/4.00.\par}
@@ -152,10 +153,11 @@
 
 \newpage
 \cvsection{Research Experience}
-\cvresearch{AirMiniVLA: Memory- and Stage-Aware Vision-Language Navigation}{UAV vision-language navigation}{Feb 2026 -- present}
+\cvresearch{LightVLN: Efficient Aerial Vision-and-Language Navigation with Compact Memory and History-Guided Local Aggregation}{UAV vision-language navigation}{Feb 2026 -- present}
 \begin{cvitems}
-\item Proposed an efficient navigation framework combining compact temporal memory with instruction-stage alignment for history-aware action prediction.
-\item The approximately 1B-parameter framework achieved up to 50\% relative improvement over existing baselines.
+\item Developed a policy with a 0.5B language backbone (1.276B total parameters), single-token historical memory, and history- and instruction-conditioned local aggregation; compressed 256 current-view tokens to 32, with at most 48 observation-derived tokens.
+\item Achieved 50.93\%/36.14\% success rates on OpenFly Test-Seen/Test-Unseen and 25.83\% on AerialVLN-S Val-Seen.
+\item Validated closed-loop hardware-in-the-loop (HIL) navigation on Jetson Orin NX 16\,GB, reaching 14.61\,Hz model inference and 11.13\,Hz end-to-end decision updates.
 \end{cvitems}
 \cventrygap
 \cvresearch{SRCF-UAV: Sparse Radar-Camera Fusion for 3D UAV Detection}{Multimodal perception and dataset construction}{Jun 2024 -- Sep 2025}
@@ -190,7 +192,6 @@
 Speech \& sensing & Acoustic echo suppression, multimodal VAD, speech separation, and time-frequency analysis of speech and radar signals.\\
 Computer vision & 2D/3D detection, radar-camera fusion, UAV platforms, RTK-based dataset construction, and TI mmWave radar.\\
 LLMs \& navigation & LLM pre-training and supervised fine-tuning, multimodal models, UAV navigation, vision-language reasoning, temporal memory, and action prediction.\\
-Frameworks & PyTorch, LoRA, and efficient model training.\\
-Languages & IELTS: 6.5; CET-6.
+Frameworks & PyTorch, LoRA, and efficient model training.
 \end{cvskills}
 \end{document}
